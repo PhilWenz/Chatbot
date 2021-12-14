@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block javascript %}
+    {% load static %}
+    <script src="{% static 'scripts/vue.js' %}"></script>
+    {% endblock %}
+
+    <title>{% block title %}Document{% endblock %}</title>
+</head>
+    <body>
+        {% block content %}
+        {% endblock %}
+
+        <!-- Chatbot-->
+<div class="chat_icon">
+    <i class="fa fa-commenting" aria-hidden="true"></i>
+</div>
+<div class="chat_box">
+    {% include 'chatview.html' %}
+    <!--iframe width="400" height="740" src="/chatapp" frameborder="0" ></iframe>
+    <iframe src="{% url 'chatapp' %}" frameborder="0"></iframe-->
+</div>
+<!-- Chatbod end-->
+    </body>
+</html>

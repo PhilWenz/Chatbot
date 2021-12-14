@@ -1,0 +1,20 @@
+{% load static %}
+<script src="{% static 'scripts/vue.js' %}"></script>
+<script src="{% static 'scripts/chatbot.js' %}"></script>
+
+<div id="app" class="chatwindow">
+    <div class="chatwindow_header">
+        <b>Support Bot</b>
+    </div>
+    <div class="scroll">
+        <div v-for="message in messages" v-bind:class="{'usermsg' : message.user, 'botmsg' : message.chat_bot}">
+            [[message.text]]
+        </div>
+    </div>
+
+    <div id="text-box" class="input_field">
+        <textarea class="form-control" v-bind:placeholder="placeholder" v-model="input" v-bind:class="{'border-danger' : send_blank}" v-on:change="check_content"></textarea>
+    <button  class="send_button" v-on:click="add_message">Senden</button>
+    </div>
+
+</div>
